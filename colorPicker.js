@@ -154,3 +154,17 @@ function hideShades(el) {
 	el.classList.add("selected");
 	document.querySelector("#shadeBtn").classList.remove("selected");
 }
+
+function generateShades(r, g, b) {
+	var shadesArr = [];
+	var max = Math.max(r,Math.max(g,b));
+
+	var step = 255 / (max * 10)
+	shadesArr.push([r * step, g * step, b * step]);
+	shadesArr.push([r * step * 2, g * step * 2, b * step * 2]);
+	shadesArr.push([r * step * 3, g * step * 3, b * step * 3]);
+	shadesArr.push([r * step * 4, g * step * 4, b * step * 4]);
+	shadesArr.push([r * step * 5, g * step * 5, b * step * 5]);
+
+	return shadesArr;
+}
