@@ -137,3 +137,20 @@ function changeAndCopy()
 	document.querySelector("#show").style.backgroundColor = clickedColor;
 	document.querySelector("#h1s").style.backgroundColor = clickedColor;
 }
+
+function showShades(el) {
+	document.querySelector("#shadeOptions").style.display = 'block';
+	document.querySelector("#randomOptions").style.display = 'none';
+	el.classList.add("selected");
+	document.querySelector("#randomBtn").classList.remove("selected");
+}
+
+function hideShades(el) {
+	document.querySelector("#shadeOptions").style.display = 'none';
+	document.querySelector("#randomOptions").style.display = 'block';
+	if(!el.classList.contains("selected")){
+		reset();
+	}
+	el.classList.add("selected");
+	document.querySelector("#shadeBtn").classList.remove("selected");
+}
