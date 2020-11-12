@@ -25,9 +25,10 @@
 		<button id="random">Pick Randomly</button>
 	</div>
 	<div class="stripe" id="shadeOptions" style="display: none;">
-		<button id="red">Red</button>
-		<button id="green">Green</button>
-		<button id="blue">Blue</button>
+		<button class="shadeColorBtn selected" id="red" onclick="setNewColors(generateShades(255, 0, 0, 24), this)">Red</button>
+		<button class="shadeColorBtn" id="green" onclick="setNewColors(generateShades(0, 255, 0, 24), this)">Green</button>
+		<button class="shadeColorBtn" id="blue" onclick="setNewColors(generateShades(0, 0, 255, 24), this)">Blue</button>
+		<button class="shadeColorBtn" id="black" onclick="setNewColors(generateShades(255, 255, 255, 24), this)">Black</button>
 	</div>
 	<div class="stripe2">
 		<span id="click">Onclick copy-</span>

@@ -141,6 +141,9 @@ function changeAndCopy()
 function showShades(el) {
 	document.querySelector("#shadeOptions").style.display = 'block';
 	document.querySelector("#randomOptions").style.display = 'none';
+	if(!el.classList.contains('selected')){
+		setNewColors(generateShades(255, 0, 0, 24));
+	}
 	el.classList.add("selected");
 	document.querySelector("#randomBtn").classList.remove("selected");
 }
@@ -155,16 +158,24 @@ function hideShades(el) {
 	document.querySelector("#shadeBtn").classList.remove("selected");
 }
 
-function generateShades(r, g, b) {
+function generateShades(r, g, b, count) {
 	var shadesArr = [];
 	var max = Math.max(r,Math.max(g,b));
 
-	var step = 255 / (max * 10)
-	shadesArr.push([r * step, g * step, b * step]);
-	shadesArr.push([r * step * 2, g * step * 2, b * step * 2]);
-	shadesArr.push([r * step * 3, g * step * 3, b * step * 3]);
-	shadesArr.push([r * step * 4, g * step * 4, b * step * 4]);
-	shadesArr.push([r * step * 5, g * step * 5, b * step * 5]);
-
+	var step = 255 / (max * count)
+	for (let i = count; i > 0; i--) 
+		shadesArr.push([r * step * i, g * step * i, b * step * i]);
 	return shadesArr;
+}
+
+function setNewColors(colors, thisEle=null) {
+	if(thisEle){
+		var elems = document.querySelectorAll(".shadeColorBtn");
+		for (var i = 0; i < elems.length; i++)
+			elems[i].classList.remove("selected");
+		thisEle.classList.add("selected");
+	}
+	for(var i = 0; i<squares.length; i++)
+		if(colors[i])
+			squares[i].style.backgroundColor = "rgb("+colors[i][0]+", "+colors[i][1]+", "+colors[i][2]+")";
 }
