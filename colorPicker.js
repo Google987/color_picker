@@ -142,7 +142,8 @@ function showShades(el) {
 	document.querySelector("#shadeOptions").style.display = 'block';
 	document.querySelector("#randomOptions").style.display = 'none';
 	if(!el.classList.contains('selected')){
-		setNewColors(generateShades(255, 0, 0, 24));
+		var selectedColorBtn = document.querySelector(".shadeColorBtn.selected");
+		selectedColorBtn.click();
 	}
 	el.classList.add("selected");
 	document.querySelector("#randomBtn").classList.remove("selected");
