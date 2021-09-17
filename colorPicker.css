@@ -1,7 +1,6 @@
 body {
 	background-color: 	white;
-	font-family: 'Risque', cursive;
-font-family: 'Berkshire Swash', cursive;
+	font-family: "Montserrat", "Avenir";
 	text-align: center;
 	letter-spacing: 1.5px;
 }
@@ -48,7 +47,7 @@ button {
 	border-radius: 3px;
 	height: 100%;
 	text-transform: uppercase;
-	font-family: "Montserrat", "Avenir";
+	/* font-family: "Montserrat", "Avenir"; */
 	font-weight: 700;
 	color: #52702b;
 	letter-spacing: 1px;
